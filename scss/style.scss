@@ -37,22 +37,22 @@ header {
 		letter-spacing: 0.1em;
 	}
 	&__subtitle {
-		letter-spacing: 0.31em;
+		letter-spacing: 0.56em;
 
 	}
 
 	&__form {
 		margin: 50px 0 120px;
-		font-size: 0;
+		display: flex;
 		position: relative;
 		
 	} 
 }
 
 input[type="text"] {
-	display: inline-block;
 	width: 505px;
 	font-size: 14px;
+	color: #333;
 	text-align: center;
 	padding: 20px 0;
 	border: none;
@@ -73,6 +73,7 @@ input[type="text"] {
 	height: 55px;
 	width: 150px;
 	text-transform: uppercase;
+	transition: background-color 0.25s ease;
 	&__text {
 		line-height: 29px;
 		font-family: $aleoReg;
@@ -87,8 +88,12 @@ input[type="text"] {
 
 .btn--search {
 	border: 2px solid #fff;
-    margin-top: -8px;
-}
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: #3d50b2;
+	}
+  }
 
 .scroll {
 	text-decoration: none;
@@ -115,7 +120,6 @@ input[type="text"] {
 .container--nav {
 	display: flex;
 	justify-content: space-between;
-	
 	text-transform: uppercase;
 }
 
@@ -126,7 +130,12 @@ input[type="text"] {
 	text-decoration: none;
 	color: $primary-color; 
 	text-transform: uppercase;
-	
+	transition: transform 0.25s ease;
+	&:hover,
+	&:focus,
+	&:active {
+		transform: scale(1.1);
+	}
 }
 
 .menu {
@@ -141,6 +150,13 @@ input[type="text"] {
 	&__link {
 		text-decoration: none;
 		color: $primary-color;
+		border-bottom: 2px solid transparent;
+		transition: border-color 0.25s ease;
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: $primary-color;
+		}
 	}
 	
 }
@@ -193,21 +209,29 @@ input[type="text"] {
 }
 
 .container--steps {
-	padding: 45px 0 100px;
+	padding: 100px 0;
 	justify-content: space-around;
+	position: relative;
 }
 
 .step {
 	text-align: center;
+	background-color: #333;
+    z-index: 1;
+    border-radius: 100px 120px 0 0;
 	
 	&__text {
 		display: block;
 		font-family: $aleoReg;
 		font-size: 36px;
 	} 
-	
-	
+		
 }
+.dots {
+	position: absolute;
+	top: 45px;
+}
+
 .container--country-1{
 	justify-content: flex-start;
 	padding: 230px 0 100px;
@@ -259,7 +283,10 @@ input[type="text"] {
 	text-transform: uppercase;
 	
 }
-
+.fa-quote-left {
+	color: $accent-color;
+	font-size: 18px;
+}
 .arrow {
 	width: 80px;
 	height: 50px;
@@ -298,8 +325,26 @@ input[type="text"] {
 
 .socials{
 	padding: 0;
-	& li {
+	&__item {
 		display: inline-block;
+		vertical-align: middle;
+		padding: 10px 10px 0;
+		transition: color 0.25s ease;
+		&:hover .fab,
+		&:focus .fab,
+		&:active  .fab{
+			color: $accent-color;
+		}
+	&__link {
+		color: #fff;
+	}
+
+	}
+	.fab {
+		color: #fff;
+		fill: $primary-color;
+		fill: currentColor;
 		
 	}
 }
+
